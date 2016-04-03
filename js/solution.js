@@ -1,4 +1,60 @@
 function intersect(fig1, fig2) {
+  var self = this;
+  var intersections = [];
+
+  // this.fig1 = fig1;
+  // this.fig2 = fig2;
+
+  this.findK = function(line) {
+    return (line[1].y - line[0].y) / (line[1].x - line[0].x);
+  }
+
+  this.findB = function(line, k) {
+    return line[0].y - k.line[0].x;
+  }
+
+  this.lineIntersect = function (line1, line2) {
+    var k1 = self.findK(line1);
+    var b1 = self.findB(line1, k1);
+
+    var k2 = self.findK(line2);
+    var b1 = self.findB(line2, k2);
+
+    
+  }
+
+  this.checkLineIntersection = function (line1, line2) {
+
+  }
+
+  fig1.forEach(function(dot1, dot1Index) {
+    var nextDot = (dot1Index + 1) % fig1.length;
+    var line1 = fig1[dot1, fig1[nextDot]];
+    /*var prev = false;
+    var cur = true;*/
+    fig2.forEach(function(dot2, dot2Index) {
+      var nextDot = (dot2Index + 1) % fig2.length;
+      var line2 = fig1[dot1, fig1[nextDot]];
+      /*if (dot1.x <= dot2.x && dot1.y <= dot2.y) {
+        cur = true;
+      } else {
+        cur = false;
+      }
+      if (prev && cur) {
+        intersections.push(1);
+      }
+      prev = cur;*/
+      lineIntersection = self.lineIntersect(line1, line2);
+      if (lineIntersection) {
+        intersections[] = lineIntersection;
+      }
+    });
+  });
+
+  var div = document.createElement('div');
+  div.innerHTML = intersections.toString() + '. Length: ' + intersections.length;
+  document.body.appendChild(div);
+
   // Замените код функции на полноценную реализацию
 
   return [

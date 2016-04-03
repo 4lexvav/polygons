@@ -33,8 +33,7 @@ function drawPath(data, container, color) {
   var str = 'M' + data[0].x + ',' + data[0].y+' ';
   str += data.slice(1).map(function (point) {
     return 'L' + point.x + ',' + point.y;
-  }).join(' ');
-  str += 'L' + data[0].x + ',' + data[0].y+' ';
+  }).join(' ') + ' Z';
   path.setAttribute('d', str);
   path.style.fill = color;
   container.appendChild(path);
@@ -45,4 +44,4 @@ drawPath(examples.second, document.querySelector('svg.base'), 'yellow');
 
 intersect(examples.first, examples.second).forEach(function (p) {
   drawPath(p, document.querySelector('svg.intersections'), 'red');
-})
+});
